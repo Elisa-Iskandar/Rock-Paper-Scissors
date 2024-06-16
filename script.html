@@ -1,2 +1,71 @@
 <script>
+    function getComputerChoice(){
+        let randomNumber = Math.floor(Math.random()*3);
+        let choice;
+        //console.log(randomNumber)
+        switch(randomNumber){
+            case 0:
+                choice = "rock"
+                break;
+            case 1:
+                choice = "paper"
+                break;
+            case 2:
+                choice = "scissors"
+                break;
+        }
+        return choice;
+    }
+    //console.log(getComputerChoice())
+    
+    function getHumanChoice(){
+        let choice = prompt("Rock, paper or scissors?");
+        choice = choice.toLowerCase();
+        return choice;
+    }
+    //console.log(getHumanChoice())
+    
+    function playGame(){
+        let humanScore = 0;
+        let computerScore = 0;
+        function playRound(humanChoice, computerChoice){
+            if (humanChoice == computerChoice){
+                console.log(`${humanChoice} ties ${computerChoice}!`);
+            } else if (humanChoice == "rock" && computerChoice == "scissors"){
+                console.log("Rock beats scissors, you win!")
+                humanScore++;
+            } else if (humanChoice == "rock" && computerChoice == "paper"){
+                console.log("Paper beats rock, you lose!")
+                computerScore++;
+            } else if (humanChoice == "paper" && computerChoice == "rock"){
+                console.log("Paper beats rock, you win!")
+                humanScore++;
+            } else if (humanChoice == "paper" && computerChoice == "scissors"){
+                console.log("Scissors beats paper, you lose!")
+                computerScore++;
+            } else if (humanChoice == "scissors" && computerChoice == "rock"){
+                console.log("Rock beats scissors, you lose!")
+                computerScore++;
+            } else if (humanChoice == "scissors" && computerChoice == "paper"){
+                console.log("Scissors beats paper, you win!")
+                humanScore++;
+            }
+        }
+        let humanSelection = getHumanChoice();
+        let computerSelection = getComputerChoice();
+        playRound(humanSelection,computerSelection);
+        humanSelection = getHumanChoice();
+        computerSelection = getComputerChoice();
+        playRound(humanSelection,computerSelection);
+        humanSelection = getHumanChoice();
+        computerSelection = getComputerChoice();
+        playRound(humanSelection,computerSelection);
+        humanSelection = getHumanChoice();
+        computerSelection = getComputerChoice();
+        playRound(humanSelection,computerSelection);
+        humanSelection = getHumanChoice();
+        computerSelection = getComputerChoice();
+        playRound(humanSelection,computerSelection);
+    }
+    playGame()
 </script>
